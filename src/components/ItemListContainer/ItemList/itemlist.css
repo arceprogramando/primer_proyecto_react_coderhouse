@@ -1,0 +1,8 @@
+.vinos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    max-width: 1440px;
+    margin: 0 auto;
+}

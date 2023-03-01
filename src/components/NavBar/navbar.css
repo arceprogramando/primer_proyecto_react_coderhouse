@@ -1,0 +1,45 @@
+.banner {
+    background-color: var(--black);
+    text-transform: uppercase;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 2.2rem;
+    line-height: 3.3rem;
+    text-align: center;
+    letter-spacing: 0.16em;
+    color: var(--white);
+    padding: 8px 0;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    margin: 0 0 24px 0;
+}
+
+.navigation {
+    display: flex;
+    
+
+}
+
+.navigation-item {
+    font-weight: 400;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: var(--black);
+    padding: 0 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: var(--orange);
+}
+
+.navigation-item-total{
+    color: var(--yellow);
+}

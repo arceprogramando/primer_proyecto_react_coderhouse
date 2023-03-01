@@ -1,0 +1,26 @@
+[
+    {
+        "id" : 1 , "stock":3 , "nombre":"vino toro" , "url":"./vinoprueba.png", "precio": 30000 , "unidades":6 , "cuotas": 3
+    },
+    {
+        "id" : 2 , "stock":2, "nombre":"vino ternero" , "url":"./vinoprueba.png", "precio": 15000, "unidades":12, "cuotas":3
+    },
+    {
+        "id" : 3 , "stock":5 , "nombre":"vino patero" , "url":"./vinoprueba.png", "precio": 23000, "unidades":6, "cuotas":6
+    },
+    {
+        "id" : 4 , "stock":5 , "nombre":"vino patero" , "url":"./vinoprueba.png", "precio": 23000, "unidades":12, "cuotas":6
+    },
+    {
+        "id" : 5 , "stock":3 , "nombre":"vino toro" , "url":"./vinoprueba.png", "precio": 30000 , "unidades":6, "cuotas":6
+    },
+    {
+        "id" : 6 , "stock":2, "nombre":"vino ternero" , "url":"./vinoprueba.png", "precio": 15000, "unidades":12, "cuotas":6
+    },
+    {
+        "id" : 7 , "stock":5 , "nombre":"vino patero" , "url":"./vinoprueba.png", "precio": 23000, "unidades":6, "cuotas":12
+    },
+    {
+        "id" : 8 , "stock":5 , "nombre":"vino patero" , "url":"./vinoprueba.png", "precio": 23000, "unidades":12, "cuotas":12
+    }
+]
