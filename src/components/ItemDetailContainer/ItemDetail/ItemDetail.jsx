@@ -1,15 +1,37 @@
-import { useParams } from "react-router-dom";
-import ItemCount from "../../ItemListContainer/ItemList/Item/ItemCount/ItemCount";
-import { useEffect, useState, UseState } from "react";
-
-const ItemDetail = ({ vinoFilter }) => {
-  const { id } = useParams();
-  const [vinos, setVinos] = useState([]);
-
+import '../../ItemListContainer/ItemList/Item/item.css'
+import './itemdetail.css';
+const ItemDetail = ({ vino }) => {
   return (
     <>
-      <h1>Aun no supe como implementar el item de el itemDetail</h1>
+      <main className='main'>
+
+        <div className='container'>
+          <div className='detail-cards-information'>
+            <div className='card card-detail'>
+              <div className='img-card'>
+                <img src={vino.url} alt={vino.nombre} />
+              </div>
+              <p className="card-information-paragraph">
+                Caja de {vino.unidades} Unidades
+              </p>
+              <h3 className="wine-name">{vino.nombre}</h3>
+              <p className="wine-price">${vino.precio}</p>
+              <p className="wine-unit">
+                valor x unidad $ {Math.ceil(vino.precio / vino.unidades)}
+              </p>
+              <p>
+                {vino.cuotas} cuotas sin interes de $
+                {Math.ceil(vino.precio / vino.cuotas)}
+              </p>
+            </div>
+            <div className='information'>
+              hola
+            </div>
+          </div>
+        </div>
+      </main>
     </>
+
   );
 };
 

@@ -31,7 +31,9 @@ const ItemListContainer = () => {
       ) : error ? (
         <p>{error}</p>
       ) : (
-        <ItemList productos={vinos} />
+        <main className="main">
+          <ItemList productos={vinos} />
+        </main>
       )}
     </>
   );

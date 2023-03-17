@@ -8,7 +8,7 @@ const NavBar = () => {
       <div className="banner">
         <p>Venta por Caja Exclusivamente</p>
       </div>
-      <header className="navbar">
+      <header className="navbar container">
         <div className="logo">
           <Link to="/">
             <h1 className="company-name">Arce Ecommerce</h1>

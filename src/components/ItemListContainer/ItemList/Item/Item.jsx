@@ -14,7 +14,7 @@ const Item = ({ producto }) => {
             </Link>
           </button>
         </div>
-        <div className="prod-btn"></div>
+
         <p className="card-information-paragraph">
           Caja de {producto.unidades} Unidades
         </p>

@@ -1,31 +1,49 @@
 import ItemDetail from "./ItemDetail/ItemDetail";
 import { useState, useEffect } from "react";
-import Data from "../../../public/data.json";
 import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
 
   const [vinos, setVinos] = useState([]);
+  const [vino, setVino] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(Data);
-        const data = await response.json();
+    setIsLoading(true);
+
+    fetch("/data.json")
+      .then((response) => response.json())
+      .then((data) => {
         setVinos(data);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchData();
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching data: ", error);
+        setError("An error occurred while fetching data. Please try again later.");
+        setIsLoading(false);
+      });
   }, []);
 
-  const vinoFilter = vinos.filter((vino) => vino.id == id);
+  useEffect(() => {
+    if (vinos.length > 0) {
+      const vinoEncontrado = vinos.find((vino) => vino.id === parseInt(id));
+      setVino(vinoEncontrado);
+    }
+  }, [vinos, id]);
 
   return (
     <>
-      <ItemDetail vinos={vinoFilter} />
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : error ? (
+        <p>{error}</p>
+      ) : vino ? (
+        <ItemDetail vino={vino} />
+      ) : (
+        <p>No se encontró el producto con id {id}.</p>
+      )}
     </>
   );
 };
