@@ -2,11 +2,12 @@
     {
         "id": 1,
         "stock": 3,
-        "nombre": "vino toro",
-        "url": "/vinoprueba.png",
+        "nombre": "ANGELICA ZAPATA MALBEC 2006",
+        "url": "/angelicazapata.png",
         "precio": 30000,
         "unidades": 6,
-        "cuotas": 3
+        "cuotas": 3,
+        "descripcion": "El vino Ángelica Zapata es un vino tinto de alta calidad producido por la bodega argentina Catena Zapata. Este vino es una de las etiquetas más famosas y prestigiosas de la bodega, y es considerado por muchos como uno de los mejores vinos de Argentina."
     },
     {
         "id": 2,

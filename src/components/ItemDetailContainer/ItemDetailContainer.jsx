@@ -20,8 +20,8 @@ const ItemDetailContainer = () => {
         setIsLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching data: ", error);
-        setError("An error occurred while fetching data. Please try again later.");
+        console.error("Error al llamar a la api  ", error);
+        setError("Ocurrio un error , intentelo mas tarde");
         setIsLoading(false);
       });
   }, []);
