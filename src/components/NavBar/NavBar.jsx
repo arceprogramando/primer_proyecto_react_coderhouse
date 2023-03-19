@@ -22,19 +22,19 @@ const NavBar = () => {
               </Link>
             </li>
             <li>
-              <a href="#" className="navigation-item">
-                Espumantes
-              </a>
+              <Link to={`category/${"espumantes"}`}>
+                <p className="navigation-item ">Espumantes</p>
+              </Link>
             </li>
             <li>
-              <a href="#" className="navigation-item">
-                Destilados
-              </a>
+              <Link to={`category/${"destilados"}`}>
+                <p className="navigation-item">Destilados</p>
+              </Link>
             </li>
             <li>
-              <a href="#" className="navigation-item">
-                Especiales
-              </a>
+              <Link to={`category/${"especiales"}`}>
+                <p className="navigation-item">Especiales</p>
+              </Link>
             </li>
           </ul>
         </nav>

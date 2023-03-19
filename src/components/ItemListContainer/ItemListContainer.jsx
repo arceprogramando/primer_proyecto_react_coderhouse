@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import "./itemlistcontainer.css";
 import ItemList from "./ItemList/ItemList";
+import { collection, getDocs, getFirestore } from "firebase/firestore"
+import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
   const [vinos, setVinos] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const { category } = useParams();
   useEffect(() => {
     console.log("Esperando respuesta");
     fetch("./data.json")
