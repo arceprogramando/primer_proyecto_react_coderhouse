@@ -1,11 +1,12 @@
 import ItemDetail from "./ItemDetail/ItemDetail";
 import { useState, useEffect } from "react";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
 
-  const [vinos, setVinos] = useState([]);
+  const [data, setData] = useState([]);
   const [vino, setVino] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -13,25 +14,30 @@ const ItemDetailContainer = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    fetch("/data.json")
-      .then((response) => response.json())
-      .then((data) => {
-        setVinos(data);
+    const db = getFirestore();
+    const vinosCollection = collection(db, "vinos");
+    getDocs(vinosCollection)
+      .then((querySnapshot) => {
+        const vinos = querySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        setData(vinos);
         setIsLoading(false);
       })
       .catch((error) => {
-        console.error("Error al llamar a la api  ", error);
-        setError("Ocurrio un error , intentelo mas tarde");
+        console.error("Error al llamar a la API", error);
+        setError("Ocurrió un error, intentelo mas tarde.");
         setIsLoading(false);
       });
   }, []);
 
   useEffect(() => {
-    if (vinos.length > 0) {
-      const vinoEncontrado = vinos.find((vino) => vino.id === parseInt(id));
+    if (data.length > 0) {
+      const vinoEncontrado = data.find((vino) => vino.id === id);
       setVino(vinoEncontrado);
     }
-  }, [vinos, id]);
+  }, [data, id]);
 
   return (
     <>

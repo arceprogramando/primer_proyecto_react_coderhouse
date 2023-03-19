@@ -2,30 +2,31 @@ import ItemCount from "./ItemCount/ItemCount";
 import "./item.css";
 import { Link } from "react-router-dom";
 
-const Item = ({ producto }) => {
+const Item = ({ vino }) => {
+  console.log(vino)
   return (
     <>
       <div className="card">
         <div className="img-card">
-          <img src={producto.url}></img>
+          <img src={vino.url}></img>
           <button>
-            <Link to={`/item/${producto.id}`}>
+            <Link to={`/item/${vino.id}`}>
               <img src="./information.svg" className="more-information"></img>
             </Link>
           </button>
         </div>
 
         <p className="card-information-paragraph">
-          Caja de {producto.unidades} Unidades
+          Caja de {vino.unidades} Unidades
         </p>
-        <h3 className="wine-name">{producto.nombre}</h3>
-        <p className="wine-price">${producto.precio}</p>
+        <h3 className="wine-name">{vino.nombre}</h3>
+        <p className="wine-price">${vino.precio}</p>
         <p className="wine-unit">
-          valor x unidad $ {Math.ceil(producto.precio / producto.unidades)}
+          valor x unidad $ {Math.ceil(vino.precio / vino.unidades)}
         </p>
         <p>
-          {producto.cuotas} cuotas sin interes de $
-          {Math.ceil(producto.precio / producto.cuotas)}
+          {vino.cuotas} cuotas sin interes de $
+          {Math.ceil(vino.precio / vino.cuotas)}
         </p>
       </div>
       {/* <ItemCount /> */}

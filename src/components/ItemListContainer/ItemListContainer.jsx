@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./itemlistcontainer.css";
 import ItemList from "./ItemList/ItemList";
-import { collection, getDocs, getFirestore } from "firebase/firestore"
+import { collection, getDocs, getFirestore, QuerySnapshot } from "firebase/firestore"
 import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
@@ -9,21 +9,25 @@ const ItemListContainer = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const { category } = useParams();
+
   useEffect(() => {
-    console.log("Esperando respuesta");
-    fetch("./data.json")
-      .then((res) => res.json())
-      .then((data) => {
-        setTimeout(() => {
-          setVinos(data);
-          setIsLoading(false);
-        }, 2000);
+    const db = getFirestore();
+    const vinosCollection = collection(db, "vinos");
+    getDocs(vinosCollection)
+      .then((QuerySnapshot) => {
+        const vinos = QuerySnapshot.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        setVinos(vinos)
+        setIsLoading(false)
+
       })
       .catch((error) => {
         console.error("Error al obtener los datos:", error);
         setError("Ha ocurrido un error. Por favor, inténtelo más tarde.");
         setIsLoading(false);
-      });
+      })
   }, []);
 
   return (
@@ -34,7 +38,7 @@ const ItemListContainer = () => {
         <p>{error}</p>
       ) : (
         <main className="main">
-          <ItemList productos={vinos} />
+          <ItemList vinos={vinos} />
         </main>
       )}
     </>
