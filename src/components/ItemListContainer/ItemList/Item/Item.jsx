@@ -11,7 +11,7 @@ const Item = ({ vino }) => {
           <img src={vino.url}></img>
           <button>
             <Link to={`/item/${vino.id}`}>
-              <img src="./information.svg" className="more-information"></img>
+              <img src="/information.svg" className="more-information"></img>
             </Link>
           </button>
         </div>
