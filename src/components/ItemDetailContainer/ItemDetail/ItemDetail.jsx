@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import '../../ItemListContainer/ItemList/Item/item.css'
 import './itemdetail.css';
+
+
 const ItemDetail = ({ vino }) => {
   const [count, setCount] = useState(0)
   const [menuAbierto, setMenuAbierto] = useState(false)
