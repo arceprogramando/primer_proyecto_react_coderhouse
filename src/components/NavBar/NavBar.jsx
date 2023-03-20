@@ -22,23 +22,25 @@ const NavBar = () => {
               </Link>
             </li>
             <li>
-              <Link to={`category/${"espumantes"}`}>
+              <Link to={`/category/${"espumantes"}`}>
                 <p className="navigation-item ">Espumantes</p>
               </Link>
             </li>
             <li>
-              <Link to={`category/${"destilados"}`}>
+              <Link to={`/category/${"destilados"}`}>
                 <p className="navigation-item">Destilados</p>
               </Link>
             </li>
             <li>
-              <Link to={`category/${"especiales"}`}>
+              <Link to={`/category/${"especiales"}`}>
                 <p className="navigation-item">Especiales</p>
               </Link>
             </li>
           </ul>
         </nav>
-        <CartWidget />
+        <link to={"/cart"}>
+          <CartWidget />
+        </link>
       </header>
     </>
   );
