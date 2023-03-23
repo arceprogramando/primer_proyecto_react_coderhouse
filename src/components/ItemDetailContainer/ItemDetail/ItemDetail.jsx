@@ -42,7 +42,7 @@ const ItemDetail = ({ vino }) => {
           <div className='detail-cards-information'>
             <div className='card card-detail'>
               <div className='img-card'>
-                <img src={vino.url} alt={vino.nombre} />
+                <img src={vino.url} alt={vino.nombre} className="imagen" />
               </div>
               <p className="card-information-paragraph">
                 Caja de {vino.unidades} Unidades

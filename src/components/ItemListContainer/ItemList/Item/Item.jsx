@@ -8,7 +8,7 @@ const Item = ({ vino }) => {
     <>
       <div className="card">
         <div className="img-card">
-          <img src={vino.url}></img>
+          <img src={vino.url} className='imagen'></img>
           <button>
             <Link to={`/item/${vino.id}`}>
               <img src="/information.svg" className="more-information"></img>

@@ -1,0 +1,16 @@
+.scroll {
+    height: 500px;
+
+    overflow: auto
+}
+
+.scroll .flex {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.imagen-cart {
+    width: 100px;
+    height: 100px;
+}

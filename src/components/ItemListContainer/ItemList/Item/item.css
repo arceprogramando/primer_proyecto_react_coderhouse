@@ -27,7 +27,7 @@
     line-height: 2.4rem;
     text-align: center;
     letter-spacing: 0.2em;
-    padding: 0 48px;
+    padding: 0 24px;
     color: var(--black);
     text-transform: uppercase;
 }
@@ -66,4 +66,9 @@
 
 button {
     border: 0;
+}
+
+.imagen {
+    width: 300px;
+    height: 300px;
 }
