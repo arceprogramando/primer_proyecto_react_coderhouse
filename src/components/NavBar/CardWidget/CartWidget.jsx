@@ -4,9 +4,7 @@ import { CartContext } from '../../../contexts/ShoppingCartProvider';
 
 const CartWidget = () => {
   const [cart, setCart] = useContext(CartContext);
-  const quantity = cart.reduce((acc, curr) => {
-    return acc + curr.quantity;
-  }, 0)
+  const quantity = cart.length;
   return (
     <div>
       <img src='/cart.svg'></img>
@@ -16,3 +14,7 @@ const CartWidget = () => {
 }
 
 export default CartWidget;
+
+
+
+
