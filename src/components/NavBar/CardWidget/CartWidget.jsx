@@ -1,10 +1,16 @@
+import React, { useContext } from 'react';
 import './cartwidget.css'
+import { CartContext } from '../../../contexts/ShoppingCartProvider';
 
 const CartWidget = () => {
+  const [cart, setCart] = useContext(CartContext);
+  const quantity = cart.reduce((acc, curr) => {
+    return acc + curr.quantity;
+  }, 0)
   return (
     <div>
       <img src='/cart.svg'></img>
-      <span>0</span>
+      <span>{quantity}</span>
     </div>
   )
 }
