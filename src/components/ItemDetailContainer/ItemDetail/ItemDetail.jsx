@@ -1,13 +1,18 @@
 import { useState } from 'react';
 import '../../ItemListContainer/ItemList/Item/item.css'
 import './itemdetail.css';
-
+import { useContext } from 'react';
+import { CartContext } from '../../../contexts/ShoppingCartProvider';
 
 const ItemDetail = ({ vino }) => {
   const [count, setCount] = useState(0)
+  const [cart, setCart] = useContext(CartContext);
   const [menuAbierto, setMenuAbierto] = useState(false)
   const sumar = () => {
-    setCount(count + 1)
+    if (count <= vino.stock) {
+
+      setCount(count + 1)
+    }
   }
 
   const restar = () => {
@@ -16,7 +21,18 @@ const ItemDetail = ({ vino }) => {
     }
   }
 
+  const agregarAlCarrito = () => {
+    const producto = {
+      id: vino.id,
+      nombre: vino.nombre,
+      precio: vino.precio,
+      cantidad: count,
+    };
+    setCart([...cart, producto]);
+  };
+
   const rotarflecha = menuAbierto ? 'rotar-flecha' : 'no-rotar';
+  console.log(cart)
   return (
     <>
       <main className='main'>
@@ -60,6 +76,7 @@ const ItemDetail = ({ vino }) => {
                 </button>
                 {menuAbierto && <p>{vino.descripcion}</p>}
               </div>
+              <button className='button-compra' onClick={agregarAlCarrito}>Comprar</button>
             </div>
 
           </div>

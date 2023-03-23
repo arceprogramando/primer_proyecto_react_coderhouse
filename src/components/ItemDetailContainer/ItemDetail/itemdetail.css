@@ -85,3 +85,19 @@
     -ms-transform: rotate(180deg);
     -o-transform: rotate(180deg);
 }
+
+button {
+    cursor: pointer;
+}
+
+.button-compra {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.2em;
+    padding: 8px;
+    background-color: var(--blue);
+    color: var(--white);
+    margin-left: 16px;
+    cursor: pointer;
+}

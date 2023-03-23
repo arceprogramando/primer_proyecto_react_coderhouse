@@ -3,7 +3,7 @@ import "./item.css";
 import { Link } from "react-router-dom";
 
 const Item = ({ vino }) => {
-  console.log(vino)
+
   return (
     <>
       <div className="card">

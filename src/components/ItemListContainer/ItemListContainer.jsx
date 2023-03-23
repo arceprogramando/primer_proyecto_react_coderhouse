@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./itemlistcontainer.css";
 import ItemList from "./ItemList/ItemList";
-import { collection, getDocs, getFirestore } from "firebase/firestore"
+import { collection, getDocs, getFirestore, query, where } from "firebase/firestore"
 import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
@@ -13,23 +13,31 @@ const ItemListContainer = () => {
   useEffect(() => {
     const db = getFirestore();
     const vinosCollection = collection(db, "vinos");
-    getDocs(vinosCollection)
-      .then((querySnapshot) => {
-        let vinos = querySnapshot.docs.map((doc) => ({
+    let q = vinosCollection;
+    if (category) {
+      q = query(vinosCollection, where("category", "==", category));
+    }
+
+    getDocs(q)
+      .then((snapshot) => {
+        if (snapshot.size === 0) {
+          console.log("No results");
+        }
+        const vinos = snapshot.docs.map((doc) => ({
           ...doc.data(),
           id: doc.id,
-        }));
-        setVinos(vinos);
-        setIsLoading(false);
+        }))
+
+        setVinos(vinos)
+
+        setIsLoading(false)
       })
       .catch((error) => {
         console.error("Error al obtener los datos:", error);
-        setError("Ha ocurrido un error. Por favor, inténtelo más tarde.");
+        setError("Ha ocurrido un error.Por favor, intentelo mas tarde.");
         setIsLoading(false);
-      });
-  }, []);
-
-  const filtroCategorias = category ? vinos.filter((vino) => vino.category === category) : vinos;
+      })
+  }, [category])
 
   return (
     <>
@@ -40,9 +48,17 @@ const ItemListContainer = () => {
       ) : (
         <main className="main">
           {category ? (
-            <ItemList vinos={filtroCategorias} />
+            vinos ? (
+              <ItemList vinos={vinos} />
+            ) : (
+              <p>Cargando...</p>
+            )
           ) : (
-            <ItemList vinos={vinos} />
+            vinos ? (
+              <ItemList vinos={vinos} />
+            ) : (
+              <p>Cargando...</p>
+            )
           )}
         </main>
       )}
