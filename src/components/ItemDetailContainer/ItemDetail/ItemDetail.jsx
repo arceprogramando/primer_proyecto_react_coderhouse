@@ -26,13 +26,14 @@ const ItemDetail = ({ vino }) => {
       id: vino.id,
       nombre: vino.nombre,
       precio: vino.precio,
+      url: vino.url,
       cantidad: count,
     };
     setCart([...cart, producto]);
   };
 
   const rotarflecha = menuAbierto ? 'rotar-flecha' : 'no-rotar';
-  console.log(cart)
+
   return (
     <>
       <main className='main'>
