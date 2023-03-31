@@ -1,11 +1,10 @@
 import './cart.css'
-
 import React, { useContext } from 'react';
 import { CartContext } from '../../contexts/ShoppingCartProvider';
 
 const Cart = () => {
     const [cart, setCart] = useContext(CartContext);
-
+    console.log(cart)
     const removeItemFromCart = (id) => {
         const updatedCart = cart.filter((item) => item.id !== id);
         setCart(updatedCart);

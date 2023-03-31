@@ -29,8 +29,15 @@ const ItemDetail = ({ vino }) => {
       url: vino.url,
       cantidad: count,
     };
+    const buscarPorId = (vino) => {
+      return producto.id === vino.id;
+    };
+
+    const productoExistente = cart.find(buscarPorId);
+
     setCart([...cart, producto]);
   };
+
 
   const rotarflecha = menuAbierto ? 'rotar-flecha' : 'no-rotar';
 
