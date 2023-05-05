@@ -16,6 +16,7 @@ const ItemDetailContainer = () => {
 
     const db = getFirestore();
     const vinosCollection = collection(db, "vinos");
+    console.log(vinosCollection)
     getDocs(vinosCollection)
       .then((querySnapshot) => {
         const vinos = querySnapshot.docs.map((doc) => ({
