@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import "./itemlistcontainer.css";
-import ItemList from "./ItemList/ItemList";
+import ItemList from "./ItemList";
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore"
 import { useParams } from "react-router-dom";
 
@@ -46,7 +45,7 @@ const ItemListContainer = () => {
       ) : error ? (
         <p>{error}</p>
       ) : (
-        <main className="main">
+        <main className=" container mx-auto gap-4 justify-center flex flex-wrap">
           {category ? (
             vinos ? (
               <ItemList vinos={vinos} />

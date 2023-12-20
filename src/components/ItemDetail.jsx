@@ -1,8 +1,6 @@
 import { useState } from 'react';
-import '../../ItemListContainer/ItemList/Item/item.css'
-import './itemdetail.css';
 import { useContext } from 'react';
-import { CartContext } from '../../../contexts/ShoppingCartProvider';
+import { CartContext } from '../contexts/ShoppingCartProvider';
 
 const ItemDetail = ({ vino }) => {
   const [count, setCount] = useState(0)
